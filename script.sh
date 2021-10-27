@@ -5,7 +5,7 @@
 REGION=$(curl -s http://169.254.169.254/latest/dynamic/instance-identity/document | grep region | cut -f2 -d ":" | sed 's/"//g' | sed 's/,//')
 SO=$(cat /etc/*-release | grep -m1 "ID" | cut -f2 -d "=" | sed 's/"//g')
 case $SO in
-        "rhel")
+        "rhel"|"centos")
         ## ----------------------------
         ## CentOS | Oracle Linux | RHEL
         ## ----------------------------
