@@ -1,7 +1,4 @@
 #!/bin/bash
-#apt install -y jq
-#apt install -y snap
-#REGION=`curl -s http://169.254.169.254/latest/dynamic/instance-identity/document | jq .region -r`
 REGION=$(curl -s http://169.254.169.254/latest/dynamic/instance-identity/document | grep region | cut -f2 -d ":" | sed 's/"//g' | sed 's/,//' | sed 's/ //g')
 SO=$(cat /etc/*-release | grep -m1 "ID" | cut -f2 -d "=" | sed 's/"//g')
 case $SO in
